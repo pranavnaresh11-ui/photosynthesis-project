@@ -155,14 +155,14 @@ function Badge({ n }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   NAV — active section detection + smooth scroll
+   NAV active section detection + smooth scroll
 ═══════════════════════════════════════════════════════════════════════════ */
 function Nav() {
   const { scrollY } = useScroll();
   const bg   = useTransform(scrollY, [0,80], ['rgba(18,18,18,0)','rgba(18,18,18,0.85)']);
   const blur = useTransform(scrollY, [0,80], ['blur(0px)','blur(24px)']);
   const [active, setActive] = useState('');
-  const links = ['Science','Carbon','Forests','Opinion','Forum','Digital','Pledge'];
+  const links = ['Science','Carbon','Forests','Opinion','Digital','Pledge'];
 
   useEffect(() => {
     const obs = [];
@@ -247,7 +247,7 @@ function Hero() {
         </motion.h1>
         <motion.p initial={{ opacity:0, y:30 }} animate={{ opacity:1, y:0 }} transition={{ type:'spring', stiffness:50, damping:18, delay:0.65 }}
           className="sans text-lg max-w-xl mx-auto mb-12" style={{ color:'var(--bone-dim)', fontWeight:300, lineHeight:1.75 }}>
-          Renewable paper is a well-intentioned myth. Real climate leadership means choosing not to cut — and letting ancient carbon vaults keep breathing.
+          Renewable paper is a well-intentioned myth. Real climate leadership means choosing not to cut and letting ancient carbon vaults keep breathing.
         </motion.p>
         <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:1 }}
           className="flex flex-col items-center gap-3" style={{ color:'rgba(245,245,247,0.25)' }}>
@@ -260,34 +260,24 @@ function Hero() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   01 · SCIENCE  — Where & How Photosynthesis Works
+   01 · SCIENCE  Where & How Photosynthesis Works
 ═══════════════════════════════════════════════════════════════════════════ */
 function Science() {
-  const stage1 = [
-    { n:1, t:'Light Absorption', d:'Chlorophyll in thylakoid membranes absorbs red and blue wavelengths. Green is reflected — hence the colour of leaves.' },
-    { n:2, t:'Photolysis (Water Splitting)', d:'H₂O → 2H⁺ + ½O₂ + 2e⁻. The oxygen released here is the O₂ we breathe — a by-product of splitting water, not directly from CO₂.' },
-    { n:3, t:'ATP & NADPH Synthesis', d:'Released electrons travel an electron transport chain, driving synthesis of ATP and NADPH — the chemical energy stores used in Stage 2.' },
-  ];
-  const stage2 = [
-    { n:1, t:'CO₂ Fixation (RuBisCO)', d:'In the stroma, the enzyme RuBisCO attaches atmospheric CO₂ to a 5-carbon molecule (RuBP), producing an unstable 6-carbon compound.' },
-    { n:2, t:'Reduction (Calvin Cycle)', d:'ATP and NADPH drive a 3-step cycle that converts the captured carbon into G3P, a precursor to glucose (C₆H₁₂O₆).' },
-    { n:3, t:'Regeneration of RuBP', d:'Most G3P is used to regenerate RuBP, keeping the cycle running and continuously locking CO₂ into stable organic matter.' },
-  ];
 
   return (
     <Sec id="science" style={{ background:'var(--charcoal)' }}>
       <VeinBg opacity={0.05}/>
       <div className="max-w-5xl mx-auto">
-        <Reveal><Tag n="01" label="The Science"/><H2>Where & How Photosynthesis Works</H2>
-          <Lead>Photosynthesis takes place inside <strong style={{color:'var(--emerald-light)'}}>chloroplasts</strong> — organelles found mainly in the <strong style={{color:'var(--emerald-light)'}}>mesophyll cells</strong> of leaves. It runs in two sequential stages: light-dependent reactions and the Calvin Cycle (light-independent). Together they are responsible for virtually all atmospheric oxygen and form the base of every food chain on Earth.</Lead>
+        <Reveal><Tag n="01" label="The Science"/><H2>Where and How Photosynthesis Works</H2>
+          <Lead>Photosynthesis happens inside <strong style={{color:'var(--emerald-light)'}}>chloroplasts</strong>, which are tiny structures found in plant leaf cells. It runs in two stages: the light-dependent reactions and the Calvin Cycle. Together they produce the oxygen we breathe and form the foundation of almost every food chain on Earth.</Lead>
         </Reveal>
 
         {/* Equation flashlight */}
         <Reveal delay={0.1}>
-          <Flashlight hiddenText="Logging one hectare of old-growth instantly releases 150–200 tonnes of CO₂ — undoing this reaction for a century.">
+          <Flashlight hiddenText="Logging one hectare of old-growth forest instantly releases 150 to 200 tonnes of CO2, undoing this reaction for a century.">
             <div className="rounded-2xl border p-8 md:p-12 text-center mb-14"
               style={{ background:'linear-gradient(135deg, rgba(6,78,59,0.25), rgba(18,18,18,0.95))', borderColor:'rgba(16,185,129,0.15)' }}>
-              <p className="sans text-xs tracking-[0.35em] uppercase mb-8" style={{ color:'rgba(16,185,129,0.5)' }}>Net Equation — Photosynthesis</p>
+              <p className="sans text-xs tracking-[0.35em] uppercase mb-8" style={{ color:'rgba(16,185,129,0.5)' }}>Net Equation Photosynthesis</p>
               <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mb-4">
                 {[{l:'6CO₂',s:'Carbon Dioxide',c:'#5b9bd5'},{l:'+',c:'rgba(245,245,247,0.18)'},{l:'6H₂O',s:'Water',c:'#60a5fa'},
                   {l:'+',c:'rgba(245,245,247,0.18)'},{l:'Light',s:'Solar Energy',c:'#fbbf24'},{l:'→',c:'rgba(16,185,129,0.5)'},
@@ -299,19 +289,18 @@ function Science() {
                   </div>
                 ))}
               </div>
-              <p className="sans text-xs mt-4" style={{ color:'rgba(245,245,247,0.18)', fontStyle:'italic' }}>↑ Hover to reveal what logging destroys</p>
+              <p className="sans text-xs mt-4" style={{ color:'rgba(245,245,247,0.18)', fontStyle:'italic' }}>Hover to reveal what logging destroys</p>
             </div>
           </Flashlight>
         </Reveal>
 
-        {/* Where it happens */}
+        {/* Where it happens - 2 boxes only */}
         <Reveal delay={0.1}>
           <p className="sans text-xs tracking-[0.3em] uppercase mb-5" style={{ color:'var(--emerald-light)' }}>Where Photosynthesis Occurs</p>
-          <div className="grid md:grid-cols-3 gap-5 mb-12">
+          <div className="grid md:grid-cols-2 gap-5 mb-12">
             {[
-              { icon:<Leaf size={20}/>,        l:'The Leaf',         d:'The primary photosynthetic organ. Flat, broad surface maximises light capture. Stomata (underside pores) admit CO₂ and release O₂ and water vapour.' },
-              { icon:<Dna size={20}/>,          l:'Mesophyll Cells',  d:'Palisade cells (near the surface) are densely packed with chloroplasts and absorb most light. Spongy cells below allow gas exchange.' },
-              { icon:<FlaskConical size={20}/>, l:'Chloroplasts',     d:'The organelle where all photosynthesis happens. Contains thylakoid membranes (Stage 1) and the fluid stroma (Stage 2 / Calvin Cycle).' },
+              { icon:<Leaf size={20}/>, l:'The Leaf', d:'Leaves are the main place where photosynthesis happens. Their wide, flat shape helps them catch as much sunlight as possible. Tiny pores called stomata let carbon dioxide in and release oxygen out.' },
+              { icon:<FlaskConical size={20}/>, l:'Chloroplasts', d:'Chloroplasts are the organelles inside leaf cells where photosynthesis actually takes place. They contain a green pigment called chlorophyll, which captures light energy and powers the whole process.' },
             ].map((c,i)=>(
               <Reveal key={i} delay={i*0.08}>
                 <motion.div whileHover={{ y:-5, borderColor:'rgba(16,185,129,0.4)' }}
@@ -333,19 +322,15 @@ function Science() {
               style={{ background:'linear-gradient(145deg, rgba(251,191,36,0.06), rgba(18,18,18,0.9))', borderColor:'rgba(251,191,36,0.15)' }}>
               <div className="flex items-center gap-3 mb-4">
                 <Sun size={20} color="#fbbf24"/>
-                <span className="sans font-medium text-sm" style={{ color:'#fde68a' }}>Stage 1 — Light-Dependent Reactions</span>
+                <span className="sans font-medium text-sm" style={{ color:'#fde68a' }}>Stage 1 - Light-Dependent Reactions</span>
               </div>
-              <p className="sans text-xs mb-5" style={{ color:'rgba(253,230,138,0.5)', lineHeight:1.6 }}>Location: <em>thylakoid membranes</em> inside chloroplasts. Requires direct sunlight.</p>
-              <div className="space-y-4">
-                {stage1.map(s=>(
-                  <div key={s.n} className="flex gap-3 items-start">
-                    <Badge n={s.n}/>
-                    <div>
-                      <p className="sans text-sm font-medium mb-1" style={{ color:'var(--bone)' }}>{s.t}</p>
-                      <p className="sans text-xs" style={{ color:'var(--bone-dim)', lineHeight:1.7, fontWeight:300 }}>{s.d}</p>
-                    </div>
-                  </div>
-                ))}
+              <p className="sans text-xs mb-5" style={{ color:'rgba(253,230,138,0.5)', lineHeight:1.6 }}>Takes place inside the chloroplast. Requires direct sunlight.</p>
+              <div className="flex gap-3 items-start">
+                <Badge n={1}/>
+                <div>
+                  <p className="sans text-sm font-medium mb-1" style={{ color:'var(--bone)' }}>Light Absorption</p>
+                  <p className="sans text-xs" style={{ color:'var(--bone-dim)', lineHeight:1.7, fontWeight:300 }}>Chlorophyll in the chloroplast absorbs sunlight. That light energy is used to split water molecules apart, releasing oxygen as a byproduct into the air. The energy captured here powers the next stage.</p>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -354,20 +339,12 @@ function Science() {
               style={{ background:'linear-gradient(145deg, rgba(16,185,129,0.06), rgba(18,18,18,0.9))', borderColor:'rgba(16,185,129,0.15)' }}>
               <div className="flex items-center gap-3 mb-4">
                 <Atom size={20} color="var(--emerald-light)"/>
-                <span className="sans font-medium text-sm" style={{ color:'var(--emerald-light)' }}>Stage 2 — Calvin Cycle (Dark Reactions)</span>
+                <span className="sans font-medium text-sm" style={{ color:'var(--emerald-light)' }}>Stage 2 - The Calvin Cycle</span>
               </div>
-              <p className="sans text-xs mb-5" style={{ color:'rgba(16,185,129,0.45)', lineHeight:1.6 }}>Location: <em>stroma</em> of chloroplasts. Uses ATP & NADPH from Stage 1; does not require direct light.</p>
-              <div className="space-y-4">
-                {stage2.map(s=>(
-                  <div key={s.n} className="flex gap-3 items-start">
-                    <Badge n={s.n}/>
-                    <div>
-                      <p className="sans text-sm font-medium mb-1" style={{ color:'var(--bone)' }}>{s.t}</p>
-                      <p className="sans text-xs" style={{ color:'var(--bone-dim)', lineHeight:1.7, fontWeight:300 }}>{s.d}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p className="sans text-xs mb-5" style={{ color:'rgba(16,185,129,0.45)', lineHeight:1.6 }}>Takes place inside the chloroplast. Does not need direct light.</p>
+              <p className="sans text-sm" style={{ color:'var(--bone-dim)', lineHeight:1.8, fontWeight:300 }}>
+                The plant takes the energy made in Stage 1 and uses it to pull carbon dioxide out of the air. Through a series of chemical reactions called the Calvin Cycle, those carbon atoms get rearranged into glucose, a sugar the plant uses for energy and growth. Think of it as the plant building its own food out of air, water, and sunlight.
+              </p>
             </div>
           </Reveal>
         </div>
@@ -375,9 +352,9 @@ function Science() {
         {/* Key stats */}
         <div className="grid md:grid-cols-3 gap-5 mt-10">
           {[
-            { icon:<TreePine size={22}/>, stat:'800+', label:'Years', desc:'Coastal old-growth trees like redwoods accumulate carbon for 800+ years — dwarfing any plantation cycle in both scale and density.' },
+            { icon:<TreePine size={22}/>, stat:'800+', label:'Years', desc:'Coastal old-growth trees like redwoods accumulate carbon for 800+ years dwarfing any plantation cycle in both scale and density.' },
             { icon:<Layers size={22}/>,   stat:'56%',  label:'Soil Carbon', desc:'Of all forest carbon is stored underground (U.S. EPA). Logging destroys this hidden vault, which can take centuries to partially rebuild.' },
-            { icon:<CloudRain size={22}/>,stat:'~40%', label:'Rainfall', desc:'Of precipitation in major tropical basins is recycled through forest transpiration. Lose the canopy — eventually lose the rain.' },
+            { icon:<CloudRain size={22}/>,stat:'~40%', label:'Rainfall', desc:'Of precipitation in major tropical basins is recycled through forest transpiration. Lose the canopy eventually lose the rain.' },
           ].map((s,i)=>(
             <Reveal key={i} delay={i*0.1}>
               <motion.div whileHover={{ y:-5, borderColor:'rgba(16,185,129,0.4)' }}
@@ -397,33 +374,33 @@ function Science() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   02 · CARBON — Two CO₂ Processes + Why Balance Matters
+   02 · CARBON Two CO₂ Processes + Why Balance Matters
 ═══════════════════════════════════════════════════════════════════════════ */
 function Carbon() {
   const combSteps = [
     { n:1, t:'Fuel Meets Oxygen', d:'A carbon-based fuel (coal, oil, gas, wood/paper) is brought into contact with atmospheric O₂.' },
-    { n:2, t:'Ignition & Activation Energy', d:'Heat is applied to overcome the activation energy barrier, triggering an exothermic chain reaction.' },
-    { n:3, t:'Rapid Oxidation', d:'Carbon atoms bond with two oxygen atoms: C + O₂ → CO₂. Hydrogen bonds with oxygen: 2H₂ + O₂ → 2H₂O.' },
-    { n:4, t:'CO₂ & Heat Released', d:'Energy stored over millions of years releases as heat, light, and CO₂ in seconds. Global fossil fuel burning now emits ~37 Gt CO₂/yr (IEA 2024).' },
+    { n:2, t:'Heat Starts the Reaction', d:'A source of heat, like a flame or spark, starts the process. Once it begins, the reaction keeps going on its own and releases even more heat.' },
+    { n:3, t:'Carbon Bonds with Oxygen', d:'The carbon in the fuel combines with oxygen from the air to form carbon dioxide (CO2). This is the gas that gets released into the atmosphere.' },
+    { n:4, t:'CO2 Released into the Air', d:'Carbon dioxide and heat are released as the final products. Burning fossil fuels releases carbon that was stored underground for millions of years, all at once.' },
   ];
   const respSteps = [
-    { n:1, t:'Glycolysis (Cytoplasm)', d:'Glucose (C₆H₁₂O₆) is split into 2 pyruvate molecules, yielding a small ATP gain. No oxygen required at this stage.' },
-    { n:2, t:'Pyruvate Oxidation', d:'Each pyruvate enters the mitochondria and converts to Acetyl-CoA, releasing one CO₂ per pyruvate (2 total per glucose).' },
-    { n:3, t:'Krebs Cycle', d:'Acetyl-CoA is systematically broken down, releasing 2 CO₂ molecules per turn and generating NADH and FADH₂ electron carriers.' },
-    { n:4, t:'Electron Transport Chain', d:'NADH/FADH₂ drive a proton pump producing large ATP yields. O₂ is the final electron acceptor, forming H₂O. Net: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP.' },
+    { n:1, t:'Breaking Down Sugar', d:'Inside the cell, glucose (the sugar made during photosynthesis) gets broken down into smaller molecules. This releases a little bit of energy for the cell to use.' },
+    { n:2, t:'Into the Mitochondria', d:'Those smaller molecules move into the mitochondria, the powerhouse of the cell. As they are broken down further, carbon dioxide is released as a waste product.' },
+    { n:3, t:'More CO2 Released', d:'The mitochondria continue breaking down the molecules through a cycle of reactions, releasing more carbon dioxide with each turn.' },
+    { n:4, t:'Energy Released, CO2 Exhaled', d:'The cell gets the energy it needs to function, and the carbon dioxide produced is released. In animals this happens with every breath we exhale. Net result: C6H12O6 + 6O2 turns into 6CO2 + 6H2O + energy.' },
   ];
   const reasons = [
     {
       icon:<Zap size={22}/>, color:'#ef4444',
-      title:'Reason 1 — Runaway Greenhouse Effect & Global Warming',
-      cause:'Excess CO₂ and methane trap outgoing infrared radiation from Earth\'s surface — amplifying the natural greenhouse effect beyond sustainable limits.',
-      effect:'Global average temperatures rise. Ice caps melt, sea levels increase, and extreme weather intensifies. The IPCC warns of irreversible tipping points above 1.5–2°C. CO₂ is already at 422+ ppm (NOAA 2024) — 50% above pre-industrial levels of ~280 ppm.',
+      title:'Reason 1 Runaway Greenhouse Effect & Global Warming',
+      cause:'Excess CO₂ and methane trap outgoing infrared radiation from Earth\'s surface amplifying the natural greenhouse effect beyond sustainable limits.',
+      effect:'As the planet warms, ice caps melt and sea levels rise. Storms, droughts, and heat waves become more frequent and more extreme. Some of these changes, once triggered, cannot be reversed.',
     },
     {
       icon:<Wind size={22}/>, color:'#60a5fa',
-      title:'Reason 2 — Disrupted O₂/CO₂ Cycle & Ocean Acidification',
-      cause:'As CO₂ rises and forests shrink, oceans absorb excess CO₂, forming carbonic acid: CO₂ + H₂O → H₂CO₃. Ocean pH drops (acidification). Photosynthetic marine organisms decline.',
-      effect:'Shellfish and coral cannot form shells in acidic water — entire marine food webs collapse. Reduced ocean photosynthesis means less O₂ production globally. Every link in the chain of life is threatened by this cascade.',
+      title:'Reason 2 Disrupted O₂/CO₂ Cycle & Ocean Acidification',
+      cause:'When too much CO2 is in the air, the oceans absorb some of it. This causes a chemical reaction that makes the water more acidic, a process called ocean acidification.',
+      effect:'In acidic water, animals like shellfish and coral cannot grow their shells or skeletons and die off. Since so many other animals depend on them for food, entire ocean ecosystems begin to collapse.',
     },
   ];
   const ref = useRef(null);
@@ -434,7 +411,7 @@ function Carbon() {
       <VeinBg opacity={0.04}/>
       <div className="max-w-5xl mx-auto">
         <Reveal><Tag n="02" label="Carbon Imbalance"/><H2>Two Processes Flooding Our Atmosphere</H2>
-          <Lead>While photosynthesis removes CO₂, two powerful natural and human-amplified processes continuously add it back. Their full mechanism — step by step — explains why "plant more trees" is not a fast enough answer.</Lead>
+          <Lead>While photosynthesis removes CO₂, two powerful natural and human-amplified processes continuously add it back. Their full mechanism step by step explains why "plant more trees" is not a fast enough answer.</Lead>
         </Reveal>
 
         {/* Combustion */}
@@ -443,7 +420,7 @@ function Carbon() {
             <div className="p-6 border-b flex flex-wrap items-center gap-4" style={{ background:'rgba(239,68,68,0.07)', borderColor:'rgba(239,68,68,0.12)' }}>
               <div className="p-2 rounded-lg" style={{ background:'rgba(239,68,68,0.15)', color:'#ef4444' }}><Flame size={20}/></div>
               <div className="flex-1">
-                <p className="sans font-medium" style={{ color:'#fca5a5' }}>Process 1 — Combustion</p>
+                <p className="sans font-medium" style={{ color:'#fca5a5' }}>Process 1 Combustion</p>
                 <p className="sans text-xs mt-0.5" style={{ color:'rgba(239,68,68,0.45)' }}>General: C + O₂ → CO₂ + Energy (heat & light)</p>
               </div>
               <span className="font-mono text-sm font-bold" style={{ color:'#ef4444' }}>~37 Gt CO₂ / yr</span>
@@ -468,7 +445,7 @@ function Carbon() {
             <div className="p-6 border-b flex flex-wrap items-center gap-4" style={{ background:'rgba(96,165,250,0.07)', borderColor:'rgba(96,165,250,0.12)' }}>
               <div className="p-2 rounded-lg" style={{ background:'rgba(96,165,250,0.15)', color:'#60a5fa' }}><Wind size={20}/></div>
               <div className="flex-1">
-                <p className="sans font-medium" style={{ color:'#bfdbfe' }}>Process 2 — Cellular Respiration</p>
+                <p className="sans font-medium" style={{ color:'#bfdbfe' }}>Process 2 Cellular Respiration</p>
                 <p className="sans text-xs mt-0.5" style={{ color:'rgba(96,165,250,0.45)' }}>Net: C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + ATP</p>
               </div>
               <span className="font-mono text-sm font-bold" style={{ color:'#60a5fa' }}>All living organisms</span>
@@ -520,7 +497,7 @@ function Carbon() {
             <div>
               <p className="sans font-medium mb-2" style={{ color:'#fca5a5' }}>Net rise: +2.4 ppm/yr avg (2011–2020) · record +3.75 ppm in 2024 (NOAA/WMO)</p>
               <p className="sans text-sm" style={{ color:'rgba(245,245,247,0.45)', fontWeight:300, lineHeight:1.75 }}>
-                CO₂ now stands at 422+ ppm — over 50% above pre-industrial levels. Growth rates have tripled since the 1960s. A sapling planted today won't absorb meaningfully for 10–20 years. The second-best time to stop cutting was yesterday.
+                CO₂ now stands at 422+ ppm over 50% above pre-industrial levels. Growth rates have tripled since the 1960s. A sapling planted today won't absorb meaningfully for 10–20 years. The second-best time to stop cutting was yesterday.
               </p>
             </div>
           </div>
@@ -531,18 +508,18 @@ function Carbon() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   03 · FORESTS — Short & Long-Term Consequences of Clearing
+   03 · FORESTS Short & Long-Term Consequences of Clearing
 ═══════════════════════════════════════════════════════════════════════════ */
 function Forests() {
   const shortPts = [
-    'A single hectare of tropical forest contains 150–200 tonnes of CO₂ equivalent. Burning or felling releases this almost instantly.',
+    'A single hectare of tropical forest contains 150 to 200 tonnes of CO₂ equivalent. Burning or felling releases this almost instantly.',
     'Loss of canopy destroys micro-habitats for thousands of species overnight. WWF estimates 137 species go extinct daily from deforestation.',
     'Exposed soil oxidises rapidly under direct sunlight, releasing further stored carbon and destroying soil structure within months.',
-    'Forest-fed rivers and water sources dry up seasonally — local communities and indigenous populations lose their primary water supply immediately.',
+    'Forest-fed rivers and water sources dry up seasonally local communities and indigenous populations lose their primary water supply immediately.',
   ];
   const longPts = [
-    'The Amazon may be near a "dieback tipping point" — where enough forest is gone that the region can no longer generate its own rainfall, converting permanently to savanna.',
-    'Mycorrhizal fungal networks — belowground carbon stores and nutrient highways — are permanently eradicated by heavy machinery and take 80–200 years to partially recover.',
+    'The Amazon may be near a "dieback tipping point" where enough forest is gone that the region can no longer generate its own rainfall, converting permanently to savanna.',
+    'Mycorrhizal fungal networks belowground carbon stores and nutrient highways are permanently eradicated by heavy machinery and take 80–200 years to partially recover.',
     'Without root systems to hold topsoil, deforested land erodes rapidly. Within decades, exposed bedrock renders land permanently non-productive.',
     'Reduced global photosynthetic capacity locks in higher atmospheric CO₂ for centuries, committing future generations to a warmer climate regardless of what emissions cuts come later.',
   ];
@@ -552,7 +529,7 @@ function Forests() {
       <VeinBg opacity={0.04}/>
       <div className="max-w-5xl mx-auto">
         <Reveal><Tag n="03" label="Clearing Forests"/><H2>Two Consequences of Deforestation</H2>
-          <Lead>Logging a forest is not a neutral exchange. It triggers two chains of consequence — one felt within days, another that reshapes the climate for centuries. Both must be understood to evaluate the "renewable paper" argument honestly.</Lead>
+          <Lead>Logging a forest is not a neutral exchange. It triggers two chains of consequence one felt within days, another that reshapes the climate for centuries. Both must be understood to evaluate the "renewable paper" argument honestly.</Lead>
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -566,7 +543,7 @@ function Forests() {
               </div>
               <div className="p-7 space-y-4">
                 <p className="sans text-sm" style={{ color:'var(--bone-dim)', lineHeight:1.8, fontWeight:300 }}>
-                  When a forest is felled or burned, the carbon accumulated over decades or centuries is released in hours to months — a sudden pulse into an already-overloaded atmosphere.
+                  When a forest is felled or burned, the carbon accumulated over decades or centuries is released in hours to months a sudden pulse into an already-overloaded atmosphere.
                 </p>
                 {shortPts.map((p,i)=>(
                   <div key={i} className="flex gap-3 items-start">
@@ -588,7 +565,7 @@ function Forests() {
               </div>
               <div className="p-7 space-y-4">
                 <p className="sans text-sm" style={{ color:'var(--bone-dim)', lineHeight:1.8, fontWeight:300 }}>
-                  An old-growth forest is not simply trees — it is a centuries-old climate regulation system. Once cleared, no plantation can replicate it on any human timescale. The IPCC classifies certain thresholds as potential irreversible tipping points.
+                  An old-growth forest is not simply trees it is a centuries-old climate regulation system. Once cleared, no plantation can replicate it on any human timescale. The IPCC classifies certain thresholds as potential irreversible tipping points.
                 </p>
                 {longPts.map((p,i)=>(
                   <div key={i} className="flex gap-3 items-start">
@@ -603,8 +580,8 @@ function Forests() {
 
         <Reveal delay={0.3}>
           <div className="rounded-2xl border p-8 text-center" style={{ background:'linear-gradient(135deg, rgba(6,78,59,0.15), rgba(18,18,18,0.9))', borderColor:'rgba(16,185,129,0.15)' }}>
-            <p className="serif text-2xl italic mb-3" style={{ color:'var(--bone)' }}>"Industrial logging disrupts not just trees — it destroys the carbon memory of the soil."</p>
-            <span className="sans text-xs tracking-widest uppercase" style={{ color:'rgba(16,185,129,0.5)' }}>— Nature Climate Change, 2023</span>
+            <p className="serif text-2xl italic mb-3" style={{ color:'var(--bone)' }}>"Industrial logging disrupts not just trees it destroys the carbon memory of the soil."</p>
+            <span className="sans text-xs tracking-widest uppercase" style={{ color:'rgba(16,185,129,0.5)' }}> Nature Climate Change, 2023</span>
           </div>
         </Reveal>
       </div>
@@ -613,21 +590,21 @@ function Forests() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   04 · OPINION — Against Renewable Paper: 2 Scientific Reasons
+   04 · OPINION Against Renewable Paper: 2 Scientific Reasons
 ═══════════════════════════════════════════════════════════════════════════ */
 function Opinion() {
   const reasons = [
     {
       n:'01', color:'#ef4444', icon:<TreePine size={22}/>,
-      title:'Carbon Debt Takes 40–80 Years to Repay',
-      evidence:'Stephenson et al. (Nature, 2014) confirmed that mature trees accelerate their carbon sequestration throughout their lifespan. When a forest is logged, the carbon debt — the difference between stored carbon lost and new carbon absorbed by replanted saplings — takes 40–80+ years to repay. Research from the International Journal of Wildland Fire (IJW, 2022) found that even optimally managed replanted forests remain net carbon sources for decades. Given that the IPCC SR1.5 report identifies the 2020s–2030s as the critical window for emissions reductions, this timescale makes "renewable paper" climatically irresponsible.',
-      conclusion:'During the 40–80 year carbon repayment period, the atmosphere is measurably worse off than if the forest had simply been left standing. No certification scheme changes this physics.',
+      title:'Carbon Debt Takes 40 to 80 Years to Repay',
+      evidence:'Scientists have found that mature trees actually absorb more carbon the older they get. When a forest is logged, the new trees planted in its place can take 40 to 80 years just to absorb back the carbon that was released. During that entire time, there is more CO2 in the atmosphere than if the forest had never been cut down.',
+      conclusion:'During the 40 to 80 year carbon repayment period, the atmosphere is measurably worse off than if the forest had simply been left standing. No certification scheme changes this physics.',
     },
     {
       n:'02', color:'#a78bfa', icon:<Layers size={22}/>,
       title:'Soil Carbon & Ecosystems Cannot Be Renewed on Human Timescales',
-      evidence:'The U.S. EPA confirms that 56% of all forest carbon is stored in soil — not in trees. NRDC/USDA research (2023) shows intensive logging can destroy up to 50% of upper soil carbon through compaction, scarification, and exposure. The mycorrhizal fungal networks that regulate belowground carbon storage, water retention, and nutrient cycling took millennia to form and are eradicated in a single harvest. FSC and PEFC certification schemes track tree volume and regeneration, not soil ecosystem recovery.',
-      conclusion:'Until certification accounts for full lifecycle soil carbon costs, "sustainably certified" paper is a measurement artifact, not a climate reality. The only guaranteed protection is reducing demand.',
+      evidence:'More than half of all the carbon stored in a forest is actually underground in the soil, not in the trees themselves. When forests are logged, heavy machinery destroys the soil and can wipe out over half of that stored carbon. Underground fungal networks that took thousands of years to develop are gone in a single harvest and cannot simply be replanted.',
+      conclusion:'Certification programs track how many trees are replanted, but they do not measure what happens to the soil. Until that changes, the safest choice is simply to use less paper.',
     },
   ];
 
@@ -636,7 +613,7 @@ function Opinion() {
       <VeinBg opacity={0.05}/>
       <div className="max-w-5xl mx-auto">
         <Reveal><Tag n="04" label="My Opinion"/><H2>Against Renewable Paper:<br/><em style={{color:'var(--emerald-light)'}}>Two Scientific Reasons</em></H2>
-          <Lead>I am firmly against the recommendation that "renewable paper" constitutes meaningful climate action. The science is unambiguous. Here are my two strongest evidence-based arguments — and the conclusion they point to.</Lead>
+          <Lead>I am firmly against the recommendation that "renewable paper" constitutes meaningful climate action. The science is unambiguous. Here are my two strongest evidence-based arguments and the conclusion they point to.</Lead>
         </Reveal>
 
         <div className="space-y-8">
@@ -672,7 +649,7 @@ function Opinion() {
             <div>
               <p className="sans font-medium mb-2" style={{ color:'var(--emerald-light)' }}>The Verdict: Reduce First, Then Certify</p>
               <p className="sans text-sm" style={{ color:'rgba(245,245,247,0.48)', fontWeight:300, lineHeight:1.8 }}>
-                Certified paper is better than uncertified — but certification is not a licence to consume freely. Every document not printed is an immediate, compounding climate win. Every ancient forest left standing is irreplaceable carbon infrastructure. Choosing digital-first is not perfectionism. It is the only path with guaranteed, immediate impact.
+                Certified paper is better than uncertified but certification is not a licence to consume freely. Every document not printed is an immediate, compounding climate win. Every ancient forest left standing is irreplaceable carbon infrastructure. Choosing digital-first is not perfectionism. It is the only path with guaranteed, immediate impact.
               </p>
             </div>
           </div>
@@ -683,135 +660,15 @@ function Opinion() {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   05 · FORUM — Class Discussion & Response
-═══════════════════════════════════════════════════════════════════════════ */
-function Forum() {
-  const [liked, setLiked]   = useState({});
-  const [text,  setText]    = useState('');
-  const [sent,  setSent]    = useState(false);
-  const posts = [
-    { id:'m', av:'M', name:'Maya Chen',  role:'Student', time:'2 hours ago', color:'#60a5fa', likes:14,
-      text:'I think renewable paper is a decent compromise — at least companies are planting new trees. Isn\'t replanting better than nothing? Besides, if we switch everything to digital we\'re just replacing paper factories with server farms and e-waste.' },
-    { id:'r', av:'R', name:'Raj Patel',  role:'Student', time:'1 hour ago',  color:'#fbbf24', likes:22,
-      text:'What about the communities that depend on paper manufacturing for their livelihoods? Going fully digital feels like an elitist solution — not everyone has reliable internet or can afford devices. Are we just exporting our environmental guilt?' },
-  ];
-  const myReply = `Great contributions from both of you — these are exactly the tensions worth interrogating. Maya, you're right that replanting is better than nothing, but the science is clear: a newly replanted forest takes 40–80+ years just to repay the carbon debt from clearing the original stand (Stephenson et al., Nature 2014; IJW 2022). In a decade where every tonne of emissions matters, that timescale isn't a compromise — it's a deferral. Raj, the digital divide is a real and serious issue, but it calls for expanding digital access, not preserving deforestation. These are separate problems that need separate solutions. The environmental cost of logging ancient forests should not be subsidised by communities who lack digital alternatives. My position: certified paper is better than uncertified, but neither beats genuine consumption reduction. The best action is to use less paper first, then ask about certification.`;
-
-  return (
-    <Sec id="forum" style={{ background:'var(--charcoal)' }}>
-      <div className="max-w-3xl mx-auto">
-        <Reveal><Tag n="05" label="Class Forum"/><H2>Discussion: Paper vs. Digital</H2>
-          <Lead>A peer forum on the core question: should we switch to digital-first to protect forests? Two student contributions below — and a direct scientific response engaging with both.</Lead>
-        </Reveal>
-
-        {/* Thread header */}
-        <Reveal delay={0.1}>
-          <div className="rounded-t-2xl border border-b-0 px-6 py-4 flex items-center gap-3"
-            style={{ background:'rgba(6,78,59,0.12)', borderColor:'rgba(16,185,129,0.14)' }}>
-            <MessageCircle size={16} style={{ color:'var(--emerald-light)' }}/>
-            <span className="sans text-sm font-medium" style={{ color:'var(--bone)' }}>
-              Thread: Should schools and offices go fully digital to protect forests?
-            </span>
-          </div>
-        </Reveal>
-
-        {/* Thread body */}
-        <div className="border border-t-0 rounded-b-2xl overflow-hidden"
-          style={{ borderColor:'rgba(16,185,129,0.1)', background:'rgba(12,12,12,0.9)' }}>
-          {/* Peer posts */}
-          {posts.map((p,i)=>(
-            <Reveal key={p.id} delay={0.15+i*0.1}>
-              <div className="p-6 border-b" style={{ borderColor:'rgba(255,255,255,0.04)' }}>
-                <div className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
-                    style={{ background:`${p.color}22`, color:p.color }}>{p.av}</div>
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <span className="sans text-sm font-medium" style={{ color:'var(--bone)' }}>{p.name}</span>
-                      <span className="sans text-xs" style={{ color:'rgba(245,245,247,0.28)' }}>{p.role} · {p.time}</span>
-                    </div>
-                    <p className="sans text-sm" style={{ color:'var(--bone-dim)', lineHeight:1.8, fontWeight:300 }}>{p.text}</p>
-                    <motion.button data-hover onClick={()=>setLiked(l=>({...l,[p.id]:!l[p.id]}))}
-                      whileHover={{ scale:1.05 }} whileTap={{ scale:0.95 }}
-                      transition={{ type:'spring', stiffness:300 }}
-                      className="mt-3 flex items-center gap-2 text-xs sans px-3 py-1.5 rounded-full border"
-                      style={{ borderColor:liked[p.id]?'rgba(16,185,129,0.5)':'rgba(255,255,255,0.07)',
-                        color:liked[p.id]?'var(--emerald-light)':'rgba(245,245,247,0.28)',
-                        background:liked[p.id]?'rgba(16,185,129,0.07)':'transparent', cursor:'none' }}>
-                      <ThumbsUp size={12}/>{p.likes+(liked[p.id]?1:0)}
-                    </motion.button>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-
-          {/* Pranav's reply */}
-          <Reveal delay={0.35}>
-            <div className="p-6 border-b" style={{ borderColor:'rgba(16,185,129,0.1)', background:'rgba(6,78,59,0.07)' }}>
-              <div className="flex items-start gap-4">
-                <div className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0"
-                  style={{ background:'rgba(16,185,129,0.18)', color:'var(--emerald-light)', border:'1px solid rgba(16,185,129,0.3)' }}>P</div>
-                <div className="flex-1">
-                  <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className="sans text-sm font-medium" style={{ color:'var(--emerald-light)' }}>Pranav</span>
-                    <span className="sans text-xs" style={{ color:'rgba(245,245,247,0.28)' }}>Student · Just now</span>
-                    <span className="sans text-xs px-2 py-0.5 rounded-full" style={{ background:'rgba(16,185,129,0.1)', color:'var(--emerald-light)' }}>Your reply</span>
-                  </div>
-                  <p className="sans text-sm" style={{ color:'var(--bone-dim)', lineHeight:1.85, fontWeight:300 }}>{myReply}</p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Reply box */}
-          <Reveal delay={0.42}>
-            <div className="p-6">
-              {!sent ? (
-                <div>
-                  <p className="sans text-xs mb-3" style={{ color:'rgba(245,245,247,0.28)' }}>Add your perspective to the discussion:</p>
-                  <textarea value={text} onChange={e=>setText(e.target.value)} rows={3}
-                    placeholder="Share your view, backed by evidence..."
-                    className="w-full rounded-xl p-4 text-sm resize-none outline-none"
-                    style={{ background:'rgba(255,255,255,0.035)', border:'1px solid rgba(255,255,255,0.07)',
-                      color:'var(--bone)', cursor:'text' }}/>
-                  <div className="flex justify-end mt-3">
-                    <motion.button data-hover onClick={()=>text.trim()&&setSent(true)}
-                      whileHover={{ scale:1.03 }} whileTap={{ scale:0.97 }}
-                      transition={{ type:'spring', stiffness:300, damping:20 }}
-                      className="sans text-xs px-5 py-2 rounded-full font-medium"
-                      style={{ background:'var(--emerald)', color:'var(--bone)', border:'1px solid rgba(16,185,129,0.3)', cursor:'none' }}>
-                      Post Reply
-                    </motion.button>
-                  </div>
-                </div>
-              ) : (
-                <motion.div initial={{ opacity:0, y:10 }} animate={{ opacity:1, y:0 }}
-                  transition={{ type:'spring', stiffness:80, damping:15 }}
-                  className="flex items-center gap-3 p-4 rounded-xl"
-                  style={{ background:'rgba(16,185,129,0.07)', border:'1px solid rgba(16,185,129,0.18)' }}>
-                  <CheckCircle size={16} style={{ color:'var(--emerald-light)' }}/>
-                  <p className="sans text-sm" style={{ color:'var(--emerald-light)' }}>Reply posted. Your voice is part of the conversation.</p>
-                </motion.div>
-              )}
-            </div>
-          </Reveal>
-        </div>
-      </div>
-    </Sec>
-  );
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
    06 · DIGITAL SHIFT
 ═══════════════════════════════════════════════════════════════════════════ */
 function DigitalShift() {
   const benefits = [
-    { icon:<Wifi size={20}/>,        t:'Zero Transport Emissions',  d:'A PDF sent globally uses ~0.00006 kg CO₂. Shipping the same document overnight: 0.85 kg — a 14,000× difference in favour of digital.' },
-    { icon:<DropletIcon size={20}/>, t:'Water Saved at Scale',      d:'One tonne of paper requires 10,000–20,000 litres of process water. Digital alternatives require effectively none.' },
-    { icon:<Globe size={20}/>,       t:'Biodiversity Protected',    d:'Every ream of paper avoided keeps ~1.2 m² of forest intact — insects, fungi, birds, and ancient soil microbiome included.' },
+    { icon:<Wifi size={20}/>,        t:'Zero Transport Emissions',  d:'A PDF sent globally uses ~0.00006 kg CO₂. Shipping the same document overnight: 0.85 kg a 14,000× difference in favour of digital.' },
+    { icon:<DropletIcon size={20}/>, t:'Water Saved at Scale',      d:'One tonne of paper requires 10,000 to 20,000 litres of process water. Digital alternatives require effectively none.' },
+    { icon:<Globe size={20}/>,       t:'Biodiversity Protected',    d:'Every ream of paper avoided keeps ~1.2 m² of forest intact insects, fungi, birds, and ancient soil microbiome included.' },
     { icon:<ShieldCheck size={20}/>, t:'Permanence of the Digital', d:'A digital archive survives indefinitely. Paper degrades, burns, floods, and requires reprinting. Choose the format that persists.' },
-    { icon:<Monitor size={20}/>,     t:'Honest Lifecycle Comparison',d:'Devices have a footprint — but lifecycle analyses show heavy digital users still out-perform equivalent paper consumption by 3–8×.' },
+    { icon:<Monitor size={20}/>,     t:'Honest Lifecycle Comparison',d:'Devices have a footprint but lifecycle analyses show heavy digital users still out-perform equivalent paper consumption by 3 to 8×.' },
     { icon:<FileX size={20}/>,       t:'No Bleach, No Dioxins',     d:'Paper bleaching releases dioxin compounds into waterways. Digital production generates zero chemical effluent from the process itself.' },
   ];
 
@@ -819,8 +676,8 @@ function DigitalShift() {
     <Sec id="digital" style={{ background:'linear-gradient(180deg, #0d1a10 0%, var(--charcoal) 100%)' }}>
       <VeinBg opacity={0.06}/>
       <div className="max-w-5xl mx-auto">
-        <Reveal><Tag n="06" label="The Digital Shift"/><H2>When Less Paper Means<br/><em style={{color:'var(--emerald-light)'}}>More Life</em></H2>
-          <Lead>The shift to digital isn't about perfection — it's about asymmetric impact. Every document you don't print is a decision that compounds across billions of humans and decades of time.</Lead>
+        <Reveal><Tag n="05" label="The Digital Shift"/><H2>When Less Paper Means<br/><em style={{color:'var(--emerald-light)'}}>More Life</em></H2>
+          <Lead>The shift to digital isn't about perfection it's about asymmetric impact. Every document you don't print is a decision that compounds across billions of humans and decades of time.</Lead>
         </Reveal>
         <div className="grid md:grid-cols-2 gap-5">
           {benefits.map((b,i)=>(
@@ -854,7 +711,7 @@ function Pledge() {
           <motion.div animate={{ scale:[1,1.05,1], opacity:[0.4,0.7,0.4] }} transition={{ duration:4, repeat:Infinity }}>
             <TreePine size={48} color="var(--emerald-light)" style={{ margin:'0 auto 24px' }}/>
           </motion.div>
-          <Tag n="07" label="The Digital Pledge"/>
+          <Tag n="06" label="The Digital Pledge"/>
           <div style={{ marginTop:16 }}>
             <H2>Choose the Forest<br/><em style={{color:'var(--emerald-light)'}}>Over the Page.</em></H2>
           </div>
@@ -897,8 +754,8 @@ function Pledge() {
           <div className="mt-20 pt-16 border-t" style={{ borderColor:'rgba(16,185,129,0.1)' }}>
             <div className="grid grid-cols-3 gap-8">
               {[
-                { n:'10.9M', l:'Hectares of forest lost annually — FAO 2025' },
-                { n:'422+',  l:'ppm CO₂ today vs ~280 pre-industrial — NOAA 2024' },
+                { n:'10.9M', l:'Hectares of forest lost annually FAO 2025' },
+                { n:'422+',  l:'ppm CO₂ today vs ~280 pre-industrial NOAA 2024' },
                 { n:'0',     l:'Years it takes to stop printing' },
               ].map((s,i)=>(
                 <div key={i} className="text-center">
@@ -922,21 +779,20 @@ function Footer() {
     <footer className="px-8 py-10 border-t" style={{ borderColor:'rgba(16,185,129,0.1)', background:'#0a0a0a' }}>
       <div className="max-w-6xl mx-auto" style={{ display:'grid', gridTemplateColumns:'1fr auto 1fr', alignItems:'center', gap:'1rem' }}>
 
-        {/* Left — brand */}
+        {/* Left brand */}
         <div className="flex items-center gap-2">
           <Leaf size={14} color="rgba(16,185,129,0.35)"/>
           <span className="sans text-xs tracking-[0.2em] uppercase" style={{ color:'rgba(245,245,247,0.18)' }}>Digital Roots</span>
         </div>
 
-        {/* Centre — sources */}
+        {/* Centre sources */}
         <p className="sans text-xs text-center" style={{ color:'rgba(245,245,247,0.13)', fontStyle:'italic', maxWidth:520 }}>
           Sources: NOAA GML 2024 · IEA 2025 · FAO FRA 2025 · U.S. EPA · USDA · NRDC · WMO 2024 · Nature (Stephenson 2014) · IJW 2022
         </p>
 
-        {/* Right — always pinned right */}
+        {/* Right always pinned right */}
         <div className="flex flex-col items-end gap-1.5">
-          <span className="sans text-xs" style={{ color:'rgba(245,245,247,0.18)' }}>© 2025 · Less Paper, More Planet</span>
-          <span className="sans text-xs flex items-center gap-1.5" style={{ color:'rgba(245,245,247,0.3)' }}>
+<span className="sans text-xs flex items-center gap-1.5" style={{ color:'rgba(245,245,247,0.3)' }}>
             Made with
             <motion.span
               animate={{ scale:[1, 1.45, 1] }}
@@ -965,7 +821,6 @@ export default function App() {
       <Divider/><Carbon/>
       <Divider/><Forests/>
       <Divider/><Opinion/>
-      <Divider/><Forum/>
       <Divider/><DigitalShift/>
       <Divider/><Pledge/>
       <Footer/>
