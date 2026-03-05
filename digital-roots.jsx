@@ -247,7 +247,7 @@ function Hero() {
         </motion.h1>
         <motion.p initial={{ opacity:0, y:30 }} animate={{ opacity:1, y:0 }} transition={{ type:'spring', stiffness:50, damping:18, delay:0.65 }}
           className="sans text-lg max-w-xl mx-auto mb-12" style={{ color:'var(--bone-dim)', fontWeight:300, lineHeight:1.75 }}>
-          Renewable paper is a well-intentioned myth. Real climate leadership means choosing not to cut and letting ancient carbon vaults keep breathing.
+          Paper being renewable is a well-intentioned myth. Real climate protection means choosing not to cut and letting ancient carbon vaults keep breathing.
         </motion.p>
         <motion.div initial={{ opacity:0 }} animate={{ opacity:1 }} transition={{ delay:1 }}
           className="flex flex-col items-center gap-3" style={{ color:'rgba(245,245,247,0.25)' }}>
@@ -349,25 +349,6 @@ function Science() {
           </Reveal>
         </div>
 
-        {/* Key stats */}
-        <div className="grid md:grid-cols-3 gap-5 mt-10">
-          {[
-            { icon:<TreePine size={22}/>, stat:'800+', label:'Years', desc:'Coastal old-growth trees like redwoods accumulate carbon for 800+ years dwarfing any plantation cycle in both scale and density.' },
-            { icon:<Layers size={22}/>,   stat:'56%',  label:'Soil Carbon', desc:'Of all forest carbon is stored underground (U.S. EPA). Logging destroys this hidden vault, which can take centuries to partially rebuild.' },
-            { icon:<CloudRain size={22}/>,stat:'~40%', label:'Rainfall', desc:'Of precipitation in major tropical basins is recycled through forest transpiration. Lose the canopy eventually lose the rain.' },
-          ].map((s,i)=>(
-            <Reveal key={i} delay={i*0.1}>
-              <motion.div whileHover={{ y:-5, borderColor:'rgba(16,185,129,0.4)' }}
-                transition={{ type:'spring', stiffness:200, damping:20 }}
-                className="rounded-xl border p-7" style={{ background:'rgba(6,78,59,0.08)', borderColor:'rgba(16,185,129,0.1)' }}>
-                <div className="mb-4" style={{ color:'var(--emerald-light)' }}>{s.icon}</div>
-                <div className="serif mb-1" style={{ fontSize:'2.8rem', color:'var(--bone)', fontWeight:300, lineHeight:1 }}>{s.stat}</div>
-                <div className="sans text-xs tracking-widest uppercase mb-3" style={{ color:'var(--emerald-light)' }}>{s.label}</div>
-                <p className="sans text-sm" style={{ color:'var(--bone-dim)', lineHeight:1.7, fontWeight:300 }}>{s.desc}</p>
-              </motion.div>
-            </Reveal>
-          ))}
-        </div>
       </div>
     </Sec>
   );
@@ -495,9 +476,9 @@ function Carbon() {
           <div className="rounded-xl border p-7 flex gap-5 items-start" style={{ background:'rgba(239,68,68,0.05)', borderColor:'rgba(239,68,68,0.18)' }}>
             <Zap size={24} style={{ color:'#ef4444', flexShrink:0, marginTop:2 }}/>
             <div>
-              <p className="sans font-medium mb-2" style={{ color:'#fca5a5' }}>Net rise: +2.4 ppm/yr avg (2011–2020) · record +3.75 ppm in 2024 (NOAA/WMO)</p>
+              <p className="sans font-medium mb-2" style={{ color:'#fca5a5' }}>Carbon dioxide in the atmosphere is rising every year and speeding up</p>
               <p className="sans text-sm" style={{ color:'rgba(245,245,247,0.45)', fontWeight:300, lineHeight:1.75 }}>
-                CO₂ now stands at 422+ ppm over 50% above pre-industrial levels. Growth rates have tripled since the 1960s. A sapling planted today won't absorb meaningfully for 10–20 years. The second-best time to stop cutting was yesterday.
+                The amount of CO2 in the air is now more than 50% higher than it was before humans started burning fossil fuels. Every year we wait to act, more damage is done. A tree planted today will take 10 to 20 years before it starts making a real difference.
               </p>
             </div>
           </div>
@@ -512,16 +493,16 @@ function Carbon() {
 ═══════════════════════════════════════════════════════════════════════════ */
 function Forests() {
   const shortPts = [
-    'A single hectare of tropical forest contains 150 to 200 tonnes of CO₂ equivalent. Burning or felling releases this almost instantly.',
-    'Loss of canopy destroys micro-habitats for thousands of species overnight. WWF estimates 137 species go extinct daily from deforestation.',
-    'Exposed soil oxidises rapidly under direct sunlight, releasing further stored carbon and destroying soil structure within months.',
-    'Forest-fed rivers and water sources dry up seasonally local communities and indigenous populations lose their primary water supply immediately.',
+    'When a section of forest is burned or cut down, the carbon that took decades to store gets released into the atmosphere almost immediately, making climate change worse.',
+    'When the forest canopy is removed, animals and plants that lived there lose their home immediately. Many species go extinct because of deforestation every single day.',
+    'When trees are gone, the soil underneath is exposed to heat and rain. This causes the soil to break down and release even more stored carbon into the air within just a few months.',
+    'Rivers and streams that depended on the forest for water can dry up, leaving nearby communities without a reliable water source.',
   ];
   const longPts = [
-    'The Amazon may be near a "dieback tipping point" where enough forest is gone that the region can no longer generate its own rainfall, converting permanently to savanna.',
-    'Mycorrhizal fungal networks belowground carbon stores and nutrient highways are permanently eradicated by heavy machinery and take 80–200 years to partially recover.',
-    'Without root systems to hold topsoil, deforested land erodes rapidly. Within decades, exposed bedrock renders land permanently non-productive.',
-    'Reduced global photosynthetic capacity locks in higher atmospheric CO₂ for centuries, committing future generations to a warmer climate regardless of what emissions cuts come later.',
+    'The Amazon rainforest generates much of its own rainfall through the trees releasing water vapor. If too many trees are removed, the rain stops coming and the entire region could turn into dry land permanently.',
+    'Underground networks of roots and organisms that took hundreds of years to form are destroyed by logging equipment in a single day and cannot be simply replanted.',
+    'Without tree roots to hold the soil in place, it washes away over time. After enough erosion, the land becomes bare and nothing can grow there anymore.',
+    'With fewer forests left to absorb CO2, the atmosphere stays warmer for longer. Future generations will be stuck dealing with a hotter climate even if we cut emissions later.',
   ];
 
   return (
@@ -529,7 +510,7 @@ function Forests() {
       <VeinBg opacity={0.04}/>
       <div className="max-w-5xl mx-auto">
         <Reveal><Tag n="03" label="Clearing Forests"/><H2>Two Consequences of Deforestation</H2>
-          <Lead>Logging a forest is not a neutral exchange. It triggers two chains of consequence one felt within days, another that reshapes the climate for centuries. Both must be understood to evaluate the "renewable paper" argument honestly.</Lead>
+          <Lead>Cutting down forests does not just affect the local area. It has consequences that are felt immediately and others that last for generations. Both matter when we talk about whether paper can really be considered renewable.</Lead>
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -538,12 +519,12 @@ function Forests() {
               <div className="p-6 border-b" style={{ background:'rgba(251,191,36,0.07)', borderColor:'rgba(251,191,36,0.12)' }}>
                 <div className="flex items-center gap-3">
                   <span className="sans text-xs font-bold px-3 py-1 rounded-full" style={{ background:'rgba(251,191,36,0.2)', color:'#fbbf24', letterSpacing:'0.1em' }}>SHORT-TERM</span>
-                  <span className="sans font-medium text-sm" style={{ color:'#fde68a' }}>Immediate CO₂ Pulse & Habitat Collapse</span>
+                  <span className="sans font-medium text-sm" style={{ color:'#fde68a' }}>Immediate Release of Carbon and Loss of Wildlife</span>
                 </div>
               </div>
               <div className="p-7 space-y-4">
                 <p className="sans text-sm" style={{ color:'var(--bone-dim)', lineHeight:1.8, fontWeight:300 }}>
-                  When a forest is felled or burned, the carbon accumulated over decades or centuries is released in hours to months a sudden pulse into an already-overloaded atmosphere.
+                  When a forest is cut down or burned, all of the carbon that the trees spent decades storing gets released back into the air very quickly.
                 </p>
                 {shortPts.map((p,i)=>(
                   <div key={i} className="flex gap-3 items-start">
@@ -560,12 +541,12 @@ function Forests() {
               <div className="p-6 border-b" style={{ background:'rgba(239,68,68,0.07)', borderColor:'rgba(239,68,68,0.12)' }}>
                 <div className="flex items-center gap-3">
                   <span className="sans text-xs font-bold px-3 py-1 rounded-full" style={{ background:'rgba(239,68,68,0.2)', color:'#ef4444', letterSpacing:'0.1em' }}>LONG-TERM</span>
-                  <span className="sans font-medium text-sm" style={{ color:'#fca5a5' }}>Permanent Carbon Vault Loss & Climate Tipping</span>
+                  <span className="sans font-medium text-sm" style={{ color:'#fca5a5' }}>Permanent Damage to Land and Climate</span>
                 </div>
               </div>
               <div className="p-7 space-y-4">
                 <p className="sans text-sm" style={{ color:'var(--bone-dim)', lineHeight:1.8, fontWeight:300 }}>
-                  An old-growth forest is not simply trees it is a centuries-old climate regulation system. Once cleared, no plantation can replicate it on any human timescale. The IPCC classifies certain thresholds as potential irreversible tipping points.
+                  An old-growth forest is not simply trees. It is a system that took centuries to build. Once cleared, no plantation can replace it within a human lifetime. Some of the damage it causes cannot be undone.
                 </p>
                 {longPts.map((p,i)=>(
                   <div key={i} className="flex gap-3 items-start">
@@ -602,8 +583,8 @@ function Opinion() {
     },
     {
       n:'02', color:'#a78bfa', icon:<Layers size={22}/>,
-      title:'Soil Carbon & Ecosystems Cannot Be Renewed on Human Timescales',
-      evidence:'More than half of all the carbon stored in a forest is actually underground in the soil, not in the trees themselves. When forests are logged, heavy machinery destroys the soil and can wipe out over half of that stored carbon. Underground fungal networks that took thousands of years to develop are gone in a single harvest and cannot simply be replanted.',
+      title:'The Damage to Soil Cannot Be Undone in Our Lifetime',
+      evidence:'More than half of all the carbon stored in a forest is actually underground in the soil, not in the trees. When forests are logged, the heavy machinery that clears the land destroys the soil and can wipe out more than half of that stored carbon. The underground systems that took hundreds of years to develop are destroyed and cannot simply be replanted.',
       conclusion:'Certification programs track how many trees are replanted, but they do not measure what happens to the soil. Until that changes, the safest choice is simply to use less paper.',
     },
   ];
@@ -649,7 +630,7 @@ function Opinion() {
             <div>
               <p className="sans font-medium mb-2" style={{ color:'var(--emerald-light)' }}>The Verdict: Reduce First, Then Certify</p>
               <p className="sans text-sm" style={{ color:'rgba(245,245,247,0.48)', fontWeight:300, lineHeight:1.8 }}>
-                Certified paper is better than uncertified but certification is not a licence to consume freely. Every document not printed is an immediate, compounding climate win. Every ancient forest left standing is irreplaceable carbon infrastructure. Choosing digital-first is not perfectionism. It is the only path with guaranteed, immediate impact.
+                Certified paper is better than uncertified paper, but a certification label does not cancel out the damage done. Every document you choose not to print is a small win for the environment. Every forest left standing cannot be replaced. Going digital is the most direct way to make a real difference.
               </p>
             </div>
           </div>
@@ -664,12 +645,12 @@ function Opinion() {
 ═══════════════════════════════════════════════════════════════════════════ */
 function DigitalShift() {
   const benefits = [
-    { icon:<Wifi size={20}/>,        t:'Zero Transport Emissions',  d:'A PDF sent globally uses ~0.00006 kg CO₂. Shipping the same document overnight: 0.85 kg a 14,000× difference in favour of digital.' },
+    { icon:<Wifi size={20}/>,        t:'Zero Transport Emissions',  d:'Sending a document digitally uses almost no energy. Printing and shipping that same document uses significantly more resources, fuel, and creates much more pollution.' },
     { icon:<DropletIcon size={20}/>, t:'Water Saved at Scale',      d:'One tonne of paper requires 10,000 to 20,000 litres of process water. Digital alternatives require effectively none.' },
     { icon:<Globe size={20}/>,       t:'Biodiversity Protected',    d:'Every ream of paper avoided keeps ~1.2 m² of forest intact insects, fungi, birds, and ancient soil microbiome included.' },
     { icon:<ShieldCheck size={20}/>, t:'Permanence of the Digital', d:'A digital archive survives indefinitely. Paper degrades, burns, floods, and requires reprinting. Choose the format that persists.' },
-    { icon:<Monitor size={20}/>,     t:'Honest Lifecycle Comparison',d:'Devices have a footprint but lifecycle analyses show heavy digital users still out-perform equivalent paper consumption by 3 to 8×.' },
-    { icon:<FileX size={20}/>,       t:'No Bleach, No Dioxins',     d:'Paper bleaching releases dioxin compounds into waterways. Digital production generates zero chemical effluent from the process itself.' },
+    { icon:<Monitor size={20}/>,     t:'Honest Lifecycle Comparison',d:'Yes, devices use electricity and have a cost to produce. But even accounting for that, going digital still causes significantly less environmental damage than the equivalent paper use.' },
+    { icon:<FileX size={20}/>,       t:'No Bleach, No Dioxins',     d:'Making paper involves harsh chemicals that end up in rivers and lakes. Using digital documents avoids this chemical pollution entirely.' },
   ];
 
   return (
@@ -754,8 +735,8 @@ function Pledge() {
           <div className="mt-20 pt-16 border-t" style={{ borderColor:'rgba(16,185,129,0.1)' }}>
             <div className="grid grid-cols-3 gap-8">
               {[
-                { n:'10.9M', l:'Hectares of forest lost annually FAO 2025' },
-                { n:'422+',  l:'ppm CO₂ today vs ~280 pre-industrial NOAA 2024' },
+                { n:'10.9M', l:'Hectares of forest lost every single year' },
+                { n:'422+',  l:'ppm CO₂ in the air today, up from 280 before industrialization' },
                 { n:'0',     l:'Years it takes to stop printing' },
               ].map((s,i)=>(
                 <div key={i} className="text-center">
@@ -787,7 +768,7 @@ function Footer() {
 
         {/* Centre sources */}
         <p className="sans text-xs text-center" style={{ color:'rgba(245,245,247,0.13)', fontStyle:'italic', maxWidth:520 }}>
-          Sources: NOAA GML 2024 · IEA 2025 · FAO FRA 2025 · U.S. EPA · USDA · NRDC · WMO 2024 · Nature (Stephenson 2014) · IJW 2022
+          A student project on the environmental impact of paper vs. digital
         </p>
 
         {/* Right always pinned right */}
