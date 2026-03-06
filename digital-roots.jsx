@@ -402,9 +402,9 @@ function Carbon() {
               <div className="p-2 rounded-lg" style={{ background:'rgba(239,68,68,0.15)', color:'#ef4444' }}><Flame size={20}/></div>
               <div className="flex-1">
                 <p className="sans font-medium" style={{ color:'#fca5a5' }}>Process 1 Combustion</p>
-                <p className="sans text-xs mt-0.5" style={{ color:'rgba(239,68,68,0.45)' }}>General: C + O₂ → CO₂ + Energy (heat & light)</p>
+
               </div>
-              <span className="font-mono text-sm font-bold" style={{ color:'#ef4444' }}>~37 Gt CO₂ / yr</span>
+
             </div>
             <div className="p-7 grid md:grid-cols-2 gap-5">
               {combSteps.map(s=>(
